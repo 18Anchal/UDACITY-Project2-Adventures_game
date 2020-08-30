@@ -1,0 +1,58 @@
+import time
+import random
+Places = ['Forest', 'Desert', 'House']
+Weapons = ['Sword', 'Knife', 'Gun', 'Rock']
+Forest_Monsters = ['Bear', 'Rabbit', 'Lion', 'Wolf', 'Monkey']
+Desert_Monsters = ['Alien', 'Giant Monster', 'Snake', 'Dog']
+House = ['Eat', 'Drink', 'Sleep', 'Wach Movie']
+Game_Result = ['win', 'Lose']
+
+
+def PrintSleep(msg, seconds):
+    print(msg + '\n')
+    time.sleep(seconds)
+
+
+PrintSleep('Welcome to the game of adventures fun game', 2)
+PrintSleep('takes you to another world of fun and thrill', 2)
+PrintSleep('We will help you during the game choices, so you can win', 2)
+name = input('Please Enter Your Name To Start Game\n')
+print('Please Choose Which Place you want to play\n')
+for place in Places:
+    print(place)
+    time.sleep(1)
+choise = ''
+while choise not in Places:
+    msg = 'for Forest write 1\nfor Desert write 2\nfor House write 3\n'
+    choise = input(msg)
+    if choise.lower() == 'Forest'.lower() or choise == '1':
+        choise = 'Forest'
+    elif choise.lower() == 'Desert'.lower() or choise == '2':
+        choise = 'Desert'
+    elif choise.lower() == 'House'.lower() or choise == '3':
+        choise = 'House'
+    else:
+        choise = ''
+time.sleep(2)
+print('you have a Weapon')
+Weaponchoosed = random.choice(Weapons)
+print(Weaponchoosed)
+changerequest = input('would you like to change Weapons\n')
+if changerequest == 'yes':
+    Weaponchoosed = random.choice(Weapons)
+    print(Weaponchoosed)
+print('\nyou now in' + choise + 'and you have a Weapon' + Weaponchoosed)
+time.sleep(1)
+print('now you see in front of you ')
+if choise == 'Forest':
+    print(random.choice(Forest_Monsters))
+if choise == 'Desert':
+    print(random.choice(Desert_Monsters))
+if choise == 'House':
+    print(random.choice(House))      
+time.sleep(2)
+PrintSleep('Use Weapon to kill Monster', 2)
+print('you ' + random.choice(Game_Result))
+time.sleep(2)
+print('Game Over')
+
